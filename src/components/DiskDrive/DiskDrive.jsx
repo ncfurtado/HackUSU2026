@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { usePhase } from '../../hooks/usePhase';
 import './DiskDrive.css';
 
@@ -10,7 +10,8 @@ const DISK_NAMES = {
 };
 
 export default function DiskDrive() {
-  const { phase, advancePhase, pushLog, pushLogs, clearLogs, openConsole, insertDisk } = usePhase();
+  const { phase, bootStatus, startBoot, advancePhase, pushLog, pushLogs, clearLogs, openConsole, insertDisk } =
+    usePhase();
   const [inserting, setInserting] = useState(false);
   const [dragOver, setDragOver] = useState(false);
 
@@ -18,8 +19,21 @@ export default function DiskDrive() {
 
   if (phase > 3) return null;
 
+  useEffect(() => {
+    if (bootStatus === 'booting') setInserting(true);
+    if (bootStatus === 'complete') setInserting(false);
+  }, [bootStatus]);
+
   function handleInsert() {
     if (inserting || expectedDisk > 4) return;
+
+    if (bootStatus !== 'complete' && expectedDisk === 1) {
+      setInserting(true);
+      insertDisk(1);
+      openConsole();
+      startBoot();
+      return;
+    }
 
     setInserting(true);
     insertDisk(expectedDisk);

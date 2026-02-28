@@ -4,3 +4,9 @@
   position: relative;
   overflow: hidden;
 }
+
+.boot-screen {
+  position: absolute;
+  inset: 0;
+  background: #0b0b0b;
+}

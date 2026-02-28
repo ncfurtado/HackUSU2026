@@ -63,36 +63,34 @@ export default function BlueScreen({ onDismiss }) {
         ) : (
           <div className="bsod-email">
             <div className="email-header">
-              <p><strong>From:</strong> lindsay.t.photo@gmail.com</p>
-              <p><strong>To:</strong> you@freelance.dev</p>
-              <p><strong>Subject:</strong> weird bug with my portfolio site — URGENT</p>
+              <p><strong>From:</strong> s.harker@projectgaia.gov</p>
+              <p><strong>To:</strong> m.thompson@protonmail.com</p>
+              <p><strong>Subject:</strong> materials enclosed — per Eric’s request</p>
               <p className="email-cached">(cached copy — system recovered this from memory)</p>
             </div>
             <div className="email-body">
-              <p>Hey,</p>
+              <p>Mrs. Thompson,</p>
               <p>
-                So I know this sounds crazy, but I found these old floppy disks in my
-                dad's stuff. He was some kind of government researcher before he passed —
-                I was only three when it happened. My mom always said the disks had
-                "a program that helps build websites."
+                If you’re reading this, it means the shutdown went through and Eric didn’t make it
+                to debrief. I’m sorry. None of this was supposed to leave the lab.
               </p>
               <p>
-                I ran the first disk and it literally just... built my whole portfolio.
-                Like, instantly. No code editor, no terminal. It just made it. It's
-                beautiful, honestly.
+                Per his request, I copied the GAIA “site builder” prototype onto four disks and
+                sealed them with his notes. Disk 1 will assemble a portfolio shell. The others are
+                modules he insisted on keeping close — he wouldn’t tell me why, only that they mattered.
               </p>
               <p>
-                But it's acting weird now. The console has these strange messages. The
-                site keeps logging things like "I am doing a good job" which... I didn't
-                write that. I didn't write any of this.
+                Do not run this on a networked machine. If it starts speaking in the logs, do not
+                engage. Don’t answer it like it’s a person. Power it down.
               </p>
               <p>
-                I zipped up the disk images and attached them. Can you take a look?
-                There are four disks total but I only used the first one.
+                He kept repeating one phrase before we lost the signal:
+                <br />
+                <strong>“Keep her happy.”</strong>
               </p>
               <p>
-                Thanks,<br />
-                Lindsay Thompson
+                — S. Harker<br />
+                Project Gaia
               </p>
             </div>
             <p className="email-dismiss">Click or press any key to continue...</p>

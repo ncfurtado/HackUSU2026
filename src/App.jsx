@@ -18,7 +18,7 @@ const PHASES = {
 };
 
 export default function App() {
-  const { phase, introSeen } = usePhase();
+  const { phase, introSeen, bootStatus } = usePhase();
   const PhaseComponent = PHASES[phase] || Phase0;
 
   if (!introSeen) {
@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <div className="app">
-      <PhaseComponent />
+      {bootStatus === 'complete' ? <PhaseComponent /> : <div className="boot-screen" />}
       <DiskDrive />
       <FakeConsole />
     </div>
