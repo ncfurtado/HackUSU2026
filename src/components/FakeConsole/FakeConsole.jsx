@@ -12,19 +12,19 @@ export default function FakeConsole() {
 
   return (
     <>
-      <button
+      {/* <button
         className="console-toggle"
         onClick={toggleConsole}
         title={consoleOpen ? 'Close console' : 'Open console'}
         aria-label={consoleOpen ? 'Close console' : 'Open console'}
       >
         {consoleOpen ? '✕' : '⌥ Console'}
-      </button>
+      </button> */}
 
       <div className={`fake-console ${consoleOpen ? 'open' : ''} phase-${phase}`}>
         <div className="console-titlebar">
           <span>Console</span>
-          <button type="button" onClick={toggleConsole}>✕</button>
+          <button type="button">✕</button>
         </div>
         <div className="console-body">
           {consoleLogs.map((log) => (
