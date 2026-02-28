@@ -31,8 +31,10 @@ export default function App() {
 
   return (
     <div className="app">
-      <PhaseComponent />
-      <DiskDrive />
+      <main className="app-main">
+        <PhaseComponent />
+        <DiskDrive />
+      </main>
       <FakeConsole />
     </div>
   );
