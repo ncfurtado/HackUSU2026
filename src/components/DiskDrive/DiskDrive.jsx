@@ -10,8 +10,7 @@ const DISK_NAMES = {
 };
 
 export default function DiskDrive() {
-  const { phase, bootStatus, startBoot, advancePhase, pushLog, pushLogs, clearLogs, openConsole, insertDisk } =
-    usePhase();
+  const { phase, advancePhase, pushLog, pushLogs, clearLogs, openConsole, insertDisk } = usePhase();
   const [inserting, setInserting] = useState(false);
   const [dragOver, setDragOver] = useState(false);
 
@@ -37,7 +36,6 @@ export default function DiskDrive() {
 
     setInserting(true);
     insertDisk(expectedDisk);
-    openConsole();
 
     const diskName = DISK_NAMES[expectedDisk];
     pushLog(`[system] Mounting ${diskName}...`, 'system');
