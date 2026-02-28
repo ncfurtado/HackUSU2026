@@ -1,4 +1,5 @@
 import { usePhase } from './hooks/usePhase';
+import Intro from './components/Intro/Intro';
 import FakeConsole from './components/FakeConsole/FakeConsole';
 import DiskDrive from './components/DiskDrive/DiskDrive';
 import Phase0 from './phases/Phase0/Phase0';
@@ -17,8 +18,16 @@ const PHASES = {
 };
 
 export default function App() {
-  const { phase } = usePhase();
+  const { phase, introSeen } = usePhase();
   const PhaseComponent = PHASES[phase] || Phase0;
+
+  if (!introSeen) {
+    return (
+      <div className="app">
+        <Intro />
+      </div>
+    );
+  }
 
   return (
     <div className="app">

@@ -63,6 +63,12 @@
   color: #555;
 }
 
+.email-header .email-cached {
+  font-style: italic;
+  color: #888;
+  margin-top: 0.5rem;
+}
+
 .email-body p {
   margin-bottom: 1rem;
 }

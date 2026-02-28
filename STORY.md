@@ -11,6 +11,12 @@ WEBSITE/GAME STORY
 
 ### The Player Journey (Gameplay Path)
 
+**Preliminary: The Briefing**
+
+* **Context:** Before the app loads, the player sees a brief explaining their role: a freelance programmer hired to investigate Lindsay Thompson's portfolio site. She built it using an old program on floppy disks (from her late father) and it has started acting strangely.
+* **Email:** Lindsay's initial email is shown — she explains the disks, how the first one built her site instantly, the weird console messages, and that she has attached a zip of the four disk images. She asks the player to take a look.
+* **Action:** The player clicks "Open Lindsay's site" to continue into the portfolio.
+
 **Phase 1: The Investigation (Base Website & The Crash)**
 
 * **Action:** You open the web app. It looks like a normal, functioning photography portfolio.

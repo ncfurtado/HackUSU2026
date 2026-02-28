@@ -1,0 +1,101 @@
+.intro {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #1a1a1c 0%, #0f0f10 100%);
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.intro-inner {
+  max-width: 36rem;
+  width: 100%;
+}
+
+.intro-context-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+  color: #c4b8a8;
+  margin: 0 0 1rem 0;
+}
+
+.intro-context-body {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0 0 1rem 0;
+  color: #b8b4ae;
+}
+
+.intro-context-body:last-of-type {
+  margin-bottom: 2rem;
+}
+
+.intro-email-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #9a9188;
+  margin: 0 0 0.75rem 0;
+}
+
+.intro-email-card {
+  background: #252528;
+  border: 1px solid #3a3a3e;
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.intro-email-header {
+  font-size: 0.8rem;
+  color: #7a7570;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #3a3a3e;
+}
+
+.intro-email-header p {
+  margin: 0.2rem 0;
+}
+
+.intro-email-body {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #c8c4be;
+}
+
+.intro-email-body p {
+  margin: 0 0 0.75rem 0;
+}
+
+.intro-email-body p:last-of-type {
+  margin-bottom: 0;
+}
+
+.intro-cta {
+  display: block;
+  width: 100%;
+  padding: 0.9rem 1.25rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1a1a1c;
+  background: #c4b8a8;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.intro-cta:hover {
+  background: #d4c8b8;
+}
+
+.intro-cta:focus {
+  outline: 2px solid #c4b8a8;
+  outline-offset: 2px;
+}

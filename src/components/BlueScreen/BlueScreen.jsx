@@ -66,6 +66,7 @@ export default function BlueScreen({ onDismiss }) {
               <p><strong>From:</strong> lindsay.t.photo@gmail.com</p>
               <p><strong>To:</strong> you@freelance.dev</p>
               <p><strong>Subject:</strong> weird bug with my portfolio site — URGENT</p>
+              <p className="email-cached">(cached copy — system recovered this from memory)</p>
             </div>
             <div className="email-body">
               <p>Hey,</p>

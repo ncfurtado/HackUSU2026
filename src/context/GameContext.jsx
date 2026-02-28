@@ -12,9 +12,11 @@ const INITIAL_LOGS = [
 
 const initialState = {
   phase: 0,
+  introSeen: false,
   consoleLogs: INITIAL_LOGS,
   nextLogId: INITIAL_LOGS.length,
-  consoleOpen: false,
+  consoleOpen: true,
+  consoleMinimized: true,
   diskInserted: null,
 };
 
@@ -52,8 +54,12 @@ function gameReducer(state, action) {
       return { ...state, consoleOpen: !state.consoleOpen };
     case 'OPEN_CONSOLE':
       return { ...state, consoleOpen: true };
+    case 'TOGGLE_CONSOLE_MINIMIZED':
+      return { ...state, consoleMinimized: !state.consoleMinimized };
     case 'INSERT_DISK':
       return { ...state, diskInserted: action.payload };
+    case 'DISMISS_INTRO':
+      return { ...state, introSeen: true };
     default:
       return state;
   }
@@ -90,8 +96,16 @@ export function GameProvider({ children }) {
     dispatch({ type: 'OPEN_CONSOLE' });
   }, []);
 
+  const toggleConsoleMinimized = useCallback(() => {
+    dispatch({ type: 'TOGGLE_CONSOLE_MINIMIZED' });
+  }, []);
+
   const insertDisk = useCallback((diskNumber) => {
     dispatch({ type: 'INSERT_DISK', payload: diskNumber });
+  }, []);
+
+  const dismissIntro = useCallback(() => {
+    dispatch({ type: 'DISMISS_INTRO' });
   }, []);
 
   const value = {
@@ -103,7 +117,9 @@ export function GameProvider({ children }) {
     clearLogs,
     toggleConsole,
     openConsole,
+    toggleConsoleMinimized,
     insertDisk,
+    dismissIntro,
   };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;
