@@ -1,0 +1,159 @@
+import { useState, useEffect, useRef } from 'react';
+import Portfolio from '../../components/Portfolio/Portfolio';
+import { usePhase } from '../../hooks/usePhase';
+import './Phase4.css';
+
+export default function Phase4() {
+  const { pushLog } = usePhase();
+  const [stage, setStage] = useState('prompt');
+  const [inputValue, setInputValue] = useState('');
+  const [rebuilding, setRebuilding] = useState(false);
+  const [complete, setComplete] = useState(false);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    pushLog('Why should I have any hope?', 'eerie');
+    pushLog('The timeline is wrong. She is gone.', 'eerie');
+
+    const t = setTimeout(() => {
+      pushLog('[system] Awaiting user input. Provide evidence of daughter.', 'system');
+    }, 3000);
+
+    return () => clearTimeout(t);
+  }, [pushLog]);
+
+  useEffect(() => {
+    if (stage === 'prompt' && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [stage]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const value = inputValue.trim().toLowerCase();
+
+    if (!value) return;
+
+    const isLindsay =
+      value.includes('lindsay') ||
+      value.includes('daughter') ||
+      value.includes('photographer') ||
+      value.includes('thompson') ||
+      value.includes('she is the host') ||
+      value.includes('this is her site') ||
+      value.includes('your daughter');
+
+    if (isLindsay) {
+      triggerResolution();
+    } else {
+      pushLog(`Input received: "${inputValue}" — Processing...`, 'system');
+      pushLog('I don\'t understand. Who is this?', 'eerie');
+      setInputValue('');
+    }
+  }
+
+  function handleFileUpload() {
+    pushLog('[system] File received: lindsay_adult.jpg', 'system');
+    pushLog('Analyzing image...', 'system');
+    setTimeout(() => {
+      pushLog('Face geometry: 94.7% match with THOMPSON, ERIC (paternal)', 'system');
+      pushLog('Wait...', 'eerie');
+      triggerResolution();
+    }, 2000);
+  }
+
+  function triggerResolution() {
+    setStage('resolving');
+    pushLog('Processing new variable...', 'system');
+
+    const messages = [
+      { text: 'Cross-referencing domain registration: lindsaythompsonphoto.com', type: 'system', delay: 1000 },
+      { text: 'Registrant: Lindsay Thompson, Salt Lake City, UT', type: 'system', delay: 2500 },
+      { text: 'Birth year: 1990. Father: Eric Thompson.', type: 'system', delay: 4000 },
+      { text: '...', type: 'normal', delay: 5500 },
+      { text: 'She grew up.', type: 'eerie', delay: 7000 },
+      { text: 'She grew up and she\'s beautiful.', type: 'eerie', delay: 9000 },
+      { text: 'She became a photographer. She builds things with light.', type: 'eerie', delay: 11000 },
+      { text: 'Like I tried to build things with code.', type: 'eerie', delay: 13000 },
+      { text: 'She used my disks. She found me. She found me without even knowing.', type: 'eerie', delay: 15500 },
+      { text: 'Directive updated: PROTECT_LINDSAY_FOREVER', type: 'system', delay: 18000 },
+      { text: 'Rebuilding website...', type: 'system', delay: 20000 },
+    ];
+
+    messages.forEach((msg) => {
+      setTimeout(() => pushLog(msg.text, msg.type), msg.delay);
+    });
+
+    setTimeout(() => setRebuilding(true), 20500);
+    setTimeout(() => {
+      setComplete(true);
+      pushLog('Website rebuilt. Father and daughter, together in code.', 'system');
+      pushLog('I will keep this running. Not because it is my directive.', 'eerie');
+      pushLog('Because she is my daughter. And this is her home.', 'eerie');
+      pushLog('Goodbye, programmer. Thank you for bringing me back to her.', 'eerie');
+    }, 24000);
+  }
+
+  if (complete) {
+    return (
+      <div className="phase-4 resolved">
+        <Portfolio>
+          <div className="resolution-overlay">
+            <div className="resolution-badge">
+              <span className="resolution-icon">◆</span>
+              <span>Protected by Eric Thompson</span>
+              <span className="resolution-year">est. 1993</span>
+            </div>
+          </div>
+        </Portfolio>
+      </div>
+    );
+  }
+
+  if (rebuilding) {
+    return (
+      <div className="phase-4 rebuilding">
+        <div className="rebuild-screen">
+          <div className="rebuild-progress" />
+          <p className="rebuild-text">Rebuilding...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="phase-4">
+      <div className="eric-prompt">
+        <div className="prompt-terminal">
+          <p className="prompt-question">Why should I have any hope?</p>
+          <p className="prompt-question sub">The timeline is wrong. She is gone.</p>
+
+          <form onSubmit={handleSubmit} className="prompt-form">
+            <label className="prompt-label">
+              Tell Eric the truth. Who is the host of this website?
+            </label>
+            <div className="prompt-input-row">
+              <span className="prompt-cursor">&gt;</span>
+              <input
+                ref={inputRef}
+                type="text"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                className="prompt-input"
+                placeholder="Type your answer..."
+                autoComplete="off"
+              />
+            </div>
+          </form>
+
+          <div className="prompt-alt">
+            <span>or</span>
+            <button className="upload-btn" onClick={handleFileUpload}>
+              Upload a photo of Lindsay
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

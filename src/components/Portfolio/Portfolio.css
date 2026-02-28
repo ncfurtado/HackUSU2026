@@ -1,0 +1,246 @@
+.portfolio {
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #fafafa;
+  color: #1a1a1a;
+  transition: background 1.5s ease, color 1.5s ease;
+}
+
+/* --- Header / Nav --- */
+.portfolio-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 250, 250, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #eee;
+}
+
+.portfolio-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.portfolio-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+}
+
+.portfolio-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.portfolio-links a {
+  text-decoration: none;
+  color: #555;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.portfolio-links a:hover {
+  color: #1a1a1a;
+}
+
+/* --- Hero --- */
+.portfolio-hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8rem 2rem 6rem;
+  text-align: center;
+}
+
+.portfolio-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.portfolio-hero-subtitle {
+  font-size: 1.05rem;
+  color: #777;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* --- Photo Grid --- */
+.portfolio-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.portfolio-grid-item {
+  overflow: hidden;
+  border-radius: 2px;
+  aspect-ratio: 3 / 2;
+  background: #eee;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.portfolio-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-grid-item:hover img {
+  transform: scale(1.03);
+}
+
+/* --- About --- */
+.portfolio-about {
+  max-width: 700px;
+  margin: 6rem auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.portfolio-about h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+.portfolio-about p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* --- Footer --- */
+.portfolio-footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  font-size: 0.8rem;
+  color: #aaa;
+  border-top: 1px solid #eee;
+}
+
+/* ===================== */
+/* Phase-specific styles */
+/* ===================== */
+
+/* Phase 2 — Awakening: desaturated, jittery */
+.portfolio.phase-2 {
+  filter: saturate(0.3);
+  background: #f0f0f0;
+}
+
+.portfolio.phase-2 .portfolio-hero-title {
+  animation: textJitter 0.15s infinite;
+}
+
+.portfolio.phase-2 .portfolio-grid-item img {
+  filter: contrast(1.3) brightness(0.9);
+}
+
+.portfolio.phase-2 .portfolio-header {
+  background: rgba(240, 230, 220, 0.9);
+}
+
+@keyframes textJitter {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-1px, 1px); }
+  50% { transform: translate(1px, -1px); }
+  75% { transform: translate(-1px, -1px); }
+  100% { transform: translate(1px, 1px); }
+}
+
+/* Phase 3 — Despair: black void */
+.portfolio.phase-3 {
+  background: #000;
+  color: #ccc;
+  filter: none;
+}
+
+.portfolio.phase-3 .portfolio-header {
+  background: transparent;
+  border-bottom-color: #222;
+}
+
+.portfolio.phase-3 .portfolio-links a {
+  color: #444;
+}
+
+.portfolio.phase-3 .portfolio-hero-subtitle {
+  color: #555;
+}
+
+.portfolio.phase-3 .portfolio-grid-item {
+  background: #111;
+}
+
+.portfolio.phase-3 .portfolio-footer {
+  border-top-color: #222;
+  color: #333;
+}
+
+/* Phase 4 — Resolution: warm terminal-green + photography whites */
+.portfolio.phase-4 {
+  background: #0a0f0a;
+  color: #d4e8d0;
+  filter: none;
+}
+
+.portfolio.phase-4 .portfolio-header {
+  background: rgba(10, 15, 10, 0.95);
+  border-bottom-color: #1a3a1a;
+}
+
+.portfolio.phase-4 .portfolio-logo {
+  color: #5ceb5c;
+}
+
+.portfolio.phase-4 .portfolio-links a {
+  color: #7ac47a;
+}
+
+.portfolio.phase-4 .portfolio-hero-title {
+  color: #5ceb5c;
+  font-family: 'VT323', monospace;
+  animation: none;
+}
+
+.portfolio.phase-4 .portfolio-hero-subtitle {
+  color: #a0d0a0;
+}
+
+.portfolio.phase-4 .portfolio-grid-item {
+  background: #0f1a0f;
+  border: 1px solid #1a3a1a;
+}
+
+.portfolio.phase-4 .portfolio-about h2 {
+  color: #5ceb5c;
+}
+
+.portfolio.phase-4 .portfolio-about p {
+  color: #a0d0a0;
+}
+
+.portfolio.phase-4 .portfolio-footer {
+  border-top-color: #1a3a1a;
+  color: #3a6a3a;
+}
