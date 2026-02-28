@@ -3,7 +3,7 @@ import { usePhase } from '../../hooks/usePhase';
 import './FakeConsole.css';
 
 export default function FakeConsole() {
-  const { consoleLogs, consoleOpen, toggleConsole, phase } = usePhase();
+  const { consoleLogs, phase } = usePhase();
   const bottomRef = useRef(null);
 
   useEffect(() => {

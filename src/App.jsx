@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <div className="app">
-      {bootStatus === 'complete' ? <PhaseComponent /> : <div className="boot-screen" />}
+      <PhaseComponent />
       <DiskDrive />
       <FakeConsole />
     </div>
