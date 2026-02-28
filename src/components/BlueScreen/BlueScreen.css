@@ -1,0 +1,87 @@
+.bluescreen {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: #0078d7;
+  color: #fff;
+  font-family: 'VT323', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bsodFlash 0.15s ease-out;
+}
+
+@keyframes bsodFlash {
+  0% { opacity: 0; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.bsod-content {
+  max-width: 750px;
+  padding: 3rem;
+}
+
+.bsod-title {
+  font-size: 6rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.bsod-text {
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.bsod-line {
+  min-height: 1.5em;
+}
+
+/* Email overlay on BSOD */
+.bsod-email {
+  background: #fff;
+  color: #1a1a1a;
+  padding: 2rem 2.5rem;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+.email-header {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.email-header p {
+  margin: 0.2rem 0;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.email-header .email-cached {
+  font-style: italic;
+  color: #888;
+  margin-top: 0.5rem;
+}
+
+.email-body p {
+  margin-bottom: 1rem;
+}
+
+.email-dismiss {
+  text-align: center;
+  margin-top: 2rem;
+  color: #aaa;
+  font-size: 0.85rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
