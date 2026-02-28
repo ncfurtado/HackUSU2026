@@ -17,9 +17,10 @@ export default function Intro() {
             containing disk images and asked you to take a look.
           </p>
           <p className="intro-context-body">
-            Your job: open her site, check the developer console, and when
-            you're ready, "insert" the first disk image to inspect what's
-            really running underneath.
+            Your job: open her site, keep the console visible, and "insert"
+            the first disk image to boot whatever she ran in the first place.
+            Once the site renders, you can keep inserting disks to see what’s
+            really living underneath.
           </p>
         </section>
 

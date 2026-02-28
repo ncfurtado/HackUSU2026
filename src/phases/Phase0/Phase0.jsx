@@ -4,9 +4,11 @@ import { usePhase } from '../../hooks/usePhase';
 import './Phase0.css';
 
 export default function Phase0() {
-  const { pushLog } = usePhase();
+  const { pushLog, bootStatus } = usePhase();
 
   useEffect(() => {
+    if (bootStatus !== 'complete') return undefined;
+
     const eerieMessages = [
       { text: 'Rendering gallery component... this is nice.', type: 'eerie', delay: 4000 },
       { text: 'GET /images/hero.jpg — 200 OK. She takes beautiful photos.', type: 'eerie', delay: 8000 },
@@ -21,7 +23,7 @@ export default function Phase0() {
     );
 
     return () => timers.forEach(clearTimeout);
-  }, [pushLog]);
+  }, [pushLog, bootStatus]);
 
   return (
     <div className="phase-0">

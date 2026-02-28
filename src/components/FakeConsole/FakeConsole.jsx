@@ -11,19 +11,31 @@ export default function FakeConsole() {
   }, [consoleLogs]);
 
   return (
-    <div className={`fake-console phase-${phase}`}>
-      <div className="console-titlebar">
-        <span>Console</span>
+    <>
+      {/* <button
+        className="console-toggle"
+        onClick={toggleConsole}
+        title={consoleOpen ? 'Close console' : 'Open console'}
+        aria-label={consoleOpen ? 'Close console' : 'Open console'}
+      >
+        {consoleOpen ? '✕' : '⌥ Console'}
+      </button> */}
+
+      <div className={`fake-console ${consoleOpen ? 'open' : ''} phase-${phase}`}>
+        <div className="console-titlebar">
+          <span>Console</span>
+          <button type="button">✕</button>
+        </div>
+        <div className="console-body">
+          {consoleLogs.map((log) => (
+            <div key={log.id} className={`console-line type-${log.type}`}>
+              <span className="console-prefix">&gt;</span>
+              {log.text}
+            </div>
+          ))}
+          <div ref={bottomRef} />
+        </div>
       </div>
-      <div className="console-body">
-        {consoleLogs.map((log) => (
-          <div key={log.id} className={`console-line type-${log.type}`}>
-            <span className="console-prefix">&gt;</span>
-            {log.text}
-          </div>
-        ))}
-        <div ref={bottomRef} />
-      </div>
-    </div>
+    </>
   );
 }
