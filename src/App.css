@@ -1,6 +1,18 @@
+:root {
+  --console-height: 280px;
+}
+
 .app {
   width: 100%;
   height: 100vh;
   position: relative;
   overflow: hidden;
+}
+
+.app-main {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: var(--console-height);
+  box-sizing: border-box;
 }
